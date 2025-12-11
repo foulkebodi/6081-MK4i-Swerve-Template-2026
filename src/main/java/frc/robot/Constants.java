@@ -4,7 +4,7 @@
 
 package frc.robot;
 
-import com.pathplanner.lib.config.ModuleConfig;
+// import com.pathplanner.lib.config.ModuleConfig;
 
 import edu.wpi.first.math.controller.SimpleMotorFeedforward;
 import edu.wpi.first.math.geometry.Rotation2d;
@@ -65,28 +65,6 @@ public final class Constants {
 		public static final int blModuleCANCoderID = 5; // back right
 		public static final int blModuleDriveMtrID = 9;
 		public static final int blModuleSteerMtrID = 13;
-
-        public static final int topElevatorMtrID = 15;
-        public static final int bottomElevatorMtrID = 16;
-
-        public static final int pivotMtrID = 28;
-        public static final int pivotEncPortID = 0; // RIO DIO
-
-        public static final int extenderMtrID = 19;
-
-        public static final int intakeMtrID = 18;
-
-        public static final int beamBreakPort = 1;
-       
-        public static final int winchMtrID = 20;
-
-
-
-
-
-        
-
-
 	}
 
     public static class SwerveModuleConstants {
@@ -133,10 +111,10 @@ public final class Constants {
         public static final double driveStallCurrentAmps = 211.0;
         public static final double driveFreeCurrentAmps = 3.6;
 
-        public static final ModuleConfig moduleConfig = new ModuleConfig(
-            wheelRadiusMeters, driveFreeSpeedMetersPerSec, wheelCoefficientOfFriction, 
-            new DCMotor(driveNominalOperatingVoltage, driveStallTorqueNewtonMeters, driveStallCurrentAmps, driveFreeCurrentAmps, driveFreeSpeedRadPerSec, 1),
-            driveCurrentLimitAmps, 4);
+        // public static final ModuleConfig moduleConfig = new ModuleConfig(
+        //     wheelRadiusMeters, driveFreeSpeedMetersPerSec, wheelCoefficientOfFriction, 
+        //     new DCMotor(driveNominalOperatingVoltage, driveStallTorqueNewtonMeters, driveStallCurrentAmps, driveFreeCurrentAmps, driveFreeSpeedRadPerSec, 1),
+        //     driveCurrentLimitAmps, 4);
     }
 
 	public static class SwerveDriveConstants {
@@ -172,165 +150,6 @@ public final class Constants {
         public static final double autoRotationKd = 0.0;
     }
 
-    public static class ElevatorConstants {
-        public static final int maxElevatorCurrentAmps = 60;
-
-        public static final double gearRatio = 6.0;
-
-        public static final double kP = 0.055;
-        public static final double kD = 0.002;
-
-        public static final double sprocketToothCount = 22.5; 
-        public static final double chainPitch = 0.25; // inches
-
-        public static final double inchesPerMtrRev = ((sprocketToothCount * chainPitch * 2.0) / gearRatio);
-        public static final double inchesPerSecPerRPM = ((sprocketToothCount * chainPitch * 2.0) / gearRatio * 60.0);
-
-        public static final double freeSpeedInchesPerSec = inchesPerMtrRev * 6784.0 / 60.0;
-
-        public static final double maxVelInchesPerSec = 50.0;
-
-        public static final double maxAccelInchesPerSecSq = 80.0;
-
-        public static final double maxManualInchesPerSec = 100.0;
-
-        public static final double maxManualInchesPerSecSq = 100.0;
-
-        public static final double homeInches = 0.0;
-        public static final double CL4BufferInches = 49.0;
-        public static final double CL3BufferInches = 17.0;
-        public static final double CL3Inches = 19.0;
-        public static final double AL2Inches = 31.0;
-        public static final double AL3Inches = 48.0;
-        public static final double bargeInches = 55.0;
-
-        public static final float lowerLimitInches = 0f;
-
-        public static final float upperLimitInches = 54.5f; // 47.7 theoretical max
-
-        public static final double toleranceInches = 0.5;
-    }
-
-    public static class ExtenderConstants {
-        public static final int maxExtenderCurrentAmps = 40;
-
-        public static final double gearRatio = 15.0;
-
-        public static final double kP = 0.43;
-        public static final double kD = 0.0045;
-
-        public static final double sprocketToothCount = 14; 
-        public static final double chainPitch = 0.375; // inches  
-
-        public static final double inchesPerMtrRev = chainPitch * sprocketToothCount / gearRatio;
-        public static final double inchesPerSecPerRPM = chainPitch * sprocketToothCount / gearRatio * 60.0;
-
-        public static final double freeSpeedInchesPerSec = inchesPerMtrRev * 6784.0 / 60.0;
-
-        public static final double maxVelInchesPerSec = freeSpeedInchesPerSec;
-
-        public static final double maxAccelInchesPerSecSq = 200.0;
-
-        public static final double homeInches = 0.0;
-        public static final double CL2Inches = 10.0;
-        public static final double CL3FinalBufferInches = 3.0;
-        public static final double CL2BufferInches = 6.0;
-        public static final double CL4Inches = 3.5;
-        public static final double bargeInches = 11.0;
-
-        public static final float lowerLimitInches = 0f;
-
-        public static final float upperLimitInches = 13f;
-
-        public static final double toleranceInches = 0.1;
-    }
-
-    public class PivotConstants {
-        public static final int maxPivotCurrentAmps = 65;
-
-        public static final double gearRatio = 88.88;
-
-        public static final double kP = 0.021;
-        public static final double kD = 0.0015;
-
-        public static final double degPerEncRev = 360.0 / gearRatio;
-        public static final double degPerSecPerRPM = 360.0 / (60.0 * gearRatio);
-
-        public static final double freeSpeedRPM = 6784.0 / gearRatio;
-
-        public static final double maxVelDegPerSec = 300.0;
-
-        public static final double maxAccelDegPerSecSq = 300.0;
-
-        // public static final double maxManualDegPerSec = 100.0;
-
-        // public static final double maxManualDegPerSecSq = 375.0;
-
-        public static final double chuteDeg = 0.3; //4.0
-        public static final double homeDeg = 22.0;
-        public static final double CL1Deg = 36.0;
-        public static final double CL23Deg = 47.0;
-        public static final double CL23PrepDeg = 20.0;
-        public static final double CL4PrepDeg = 35.0;
-        public static final double CL4BufferDeg = 51.0;
-        public static final double processorDeg = 70.0;
-        public static final double groundDeg = 88.0;
-        public static final double groundAirDeg = 84.0;
-            //try adjusting this ^ for L4 Scoring, create a new variable. 
-        public static final double toleranceDeg = 1.0;
-
-        public static final double absPivotEncOffsetDeg = 194.0-25; //318.0-270;
-    }
-
-    public class IntakeConstants {
-        public static final int maxIntakeCurrentAmps = 50;
-
-        public static final double CL4outtakePower = -0.2;
-
-        public static final double outtakePower = -1.0;
-
-        public static final double intakePower = 0.35;
-
-        public static final double idlePower = 0.25;
-
-        public static final double idleOutPower = -0.08;
-
-        public static final double waitSeconds = 1.0;
-
-        public static final double currentThreshold = 40;
-
-        public static final double currentDebounceTime = 0.3;
-        public static final double beamBreakDebounceTime = 0.1;
-
-        public static final int filterSize = 3;
-    }
-
-    public static class WinchConstants {
-        public static final int maxWinchCurrentAmps = 100;
-
-        public static final double gearRatio = 125.0;
-
-        public static final double kP = 0.028;
-        public static final double kD = 0.0001;
-
-        public static final double degPerEncRev = 360.0 / gearRatio;
-        public static final double degPerSecPerRPM = 360.0 / (60.0 * gearRatio);
-
-        public static final double maxVelDegPerSec = 150.0;
-
-        public static final double maxAccelDegPerSecSq = 150.0;
-
-        public static final double inPresetDeg = -160; //-185.0;
-
-        public static final double homePresetDegree = 0.0;
-
-        public static final double outPresetDeg =  700.0;
-
-        public static final float lowerLimitDeg = -190f;
-
-        public static final float upperLimitDeg = 610f;
-    }
-
     public class VisionConstants {
         public static final String frontLimelightName = "limelight-front";
 
@@ -343,20 +162,5 @@ public final class Constants {
         public static final double visionRotationStdDevRad = Units.degreesToRadians(30.0);
 
         public static final double poseInnacuracyThreshold = 0.5;
-    }
-
-    public enum State {
-        CHUTE,
-        HOME,
-        CL1,
-        CL2,
-        CL3,
-        CL4,
-        AL2,
-        AL3,
-        PROCESSOR,
-        GROUND,
-        BARGE,
-        CLIMB
     }
 }
