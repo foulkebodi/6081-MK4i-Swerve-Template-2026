@@ -81,7 +81,8 @@ public final class Constants {
         public static final SimpleMotorFeedforward driveFF = new SimpleMotorFeedforward(driveKsVolts, driveKvVoltSecsPerMeter, driveKaVoldSecsPerMeterSq);
 
         // TODO: Change this value depending on your breakers and the current usage of the rest of your robot.
-        public static final int driveCurrentLimitAmps = 55;
+        public static final int driveMtrCurrentLimitAmps = 40;
+        public static final int steerMtrCurrentLimitAmps = 40;
 
         // TODO: Change this number based on actual wheel diamter.
         public static final double wheelRadiusMeters = Units.inchesToMeters(1.9);

@@ -109,7 +109,7 @@ public class PoseEstimator extends SubsystemBase {
     }
 
     public Rotation2d getHeading() {
-        return gyroHeadingSupplier.get(); // or your own heading method
+        return gyroHeadingSupplier.get();
     }
 
     public double getAngularVelocityDegPerSec() {

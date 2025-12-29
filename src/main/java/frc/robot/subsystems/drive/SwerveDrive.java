@@ -201,8 +201,7 @@ public class SwerveDrive extends SubsystemBase {
                 new SwerveModuleState(0.0, new Rotation2d(-0.25 * Math.PI)),
                 new SwerveModuleState(0.0, new Rotation2d(0.25 * Math.PI))
             };
-        }
-        else {
+        } else {
             chassisSpeeds = compensateForSkew(chassisSpeeds);
 
             desiredModuleStates = SwerveDriveConstants.kinematics.toSwerveModuleStates(chassisSpeeds);

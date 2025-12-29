@@ -47,9 +47,11 @@ public class REVSwerveModule extends SwerveModule {
         driveConfig.idleMode(IdleMode.kCoast);
         steerConfig.idleMode(IdleMode.kBrake);
 
-        driveConfig.smartCurrentLimit(SwerveModuleConstants.driveCurrentLimitAmps);
+        driveConfig.smartCurrentLimit(SwerveModuleConstants.driveMtrCurrentLimitAmps);
+        steerConfig.smartCurrentLimit(SwerveModuleConstants.steerMtrCurrentLimitAmps);
 
         steerConfig.inverted(false);
+        driveConfig.inverted(false);
 
         driveConfig.encoder.positionConversionFactor(SwerveModuleConstants.driveMetersPerEncRev);
         steerConfig.encoder.positionConversionFactor(SwerveModuleConstants.steerRadiansPerEncRev);
@@ -130,6 +132,7 @@ public class REVSwerveModule extends SwerveModule {
         steerPID.setSetpoint(desiredState.angle.getRadians(), ControlType.kPosition, ClosedLoopSlot.kSlot0);
     }
 
+    // for use in sysID characterization routines
     public void applyCharacterizationVoltage(double volts) {
         driveMtr.setVoltage(volts);
         steerPID.setSetpoint(0.0, ControlType.kPosition, ClosedLoopSlot.kSlot0);
